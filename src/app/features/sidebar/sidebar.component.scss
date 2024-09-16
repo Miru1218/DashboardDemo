@@ -1,0 +1,80 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 345px;
+  background-color: #dd0303;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  margin-left: 43px;
+  margin-bottom: 49px;
+}
+
+.logo img {
+  width: 56px;
+  height: 56px;
+  margin-right: 24px;
+}
+
+.logo span {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.menu {
+  list-style-type: none;
+  margin-left: 46px;
+  padding: 0;
+}
+
+.menu li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menu li i {
+  margin-right: 10px;
+}
+
+.menu li.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.sign-out {
+  margin-top: auto;
+  padding: 10px 0;
+}
+
+.pro-upgrade {
+  background-color: #4b4dbe;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.pro-upgrade img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.pro-upgrade button {
+  background-color: white;
+  color: #5d5fef;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
