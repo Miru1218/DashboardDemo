@@ -1,1 +1,15 @@
-
+<div class="grid p-fluid chart-container">
+  <p-panel
+    *ngIf="chartInfo['bar-chart']"
+    [header]="chartInfo['bar-chart'].title"
+    class="col-12 md:col-4 lg:col-4"
+  >
+    <div class="chart-content" style="width: 500px; height: 400px">
+      <p-chart
+        [type]="chartInfo['bar-chart'].type"
+        [data]="chartInfo['bar-chart'].data"
+        [options]="chartInfo['bar-chart'].options"
+      ></p-chart>
+    </div>
+  </p-panel>
+</div>
