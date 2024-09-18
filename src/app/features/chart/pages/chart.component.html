@@ -20,17 +20,17 @@
 
 <div class="grid p-fluid chart-container">
   <div class="col-12">
+<div class="grid p-fluid">
+  <!-- Today's Sales Summary -->
+  <div class="col-12 md:col-6">
     <p-card header="Today's Sales">
       <div class="p-card-header">
-        <!-- <p>Sales Summary</p> -->
         <button pButton label="Export" icon="pi pi-download"></button>
       </div>
-
-      <!-- 卡片 -->
-      <div class="summary-cards">
+      <div class="grid summary-cards">
         <div
           *ngFor="let card of summaryCards"
-          class="summary-card"
+          class="col-12 md:col-3 summary-card"
           [ngStyle]="{ 'background-color': card.color }"
         >
           <div class="icon">
@@ -47,11 +47,8 @@
   </div>
 
   <!-- Total Revenue Chart -->
-  <div class="col-12 md:col-6 lg:col-6">
-    <p-card
-      *ngIf="chartInfo['total-revenue']"
-      [header]="chartInfo['total-revenue'].title"
-    >
+  <div class="col-12 md:col-6">
+    <p-card header="Total Revenue">
       <div class="chart-content">
         <p-chart
           [type]="chartInfo['total-revenue'].type"
@@ -63,39 +60,21 @@
   </div>
 
   <!-- Customer Satisfaction Chart -->
-  <div class="col-12 md:col-6 lg:col-6">
-    <p-card
-      *ngIf="chartInfo['customer-satisfaction']"
-      [header]="chartInfo['customer-satisfaction'].title"
-    >
+  <div class="col-12 md:col-5">
+    <p-card header="Customer Satisfaction">
       <div class="chart-content">
         <p-chart
           [type]="chartInfo['customer-satisfaction'].type"
           [data]="chartInfo['customer-satisfaction'].data"
           [options]="chartInfo['customer-satisfaction'].options"
         ></p-chart>
-        <!-- 圖例 -->
-        <!-- <div class="custom-legend">
-          <div class="legend-item">
-            <span class="legend-line"></span>
-            <span class="legend-ellipse"></span>
-            <span class="legend-text">Last Month</span>
-          </div>
-          <div class="legend-item">
-            <span class="legend-line"></span>
-            <span class="legend-ellipse" style="background-color: green"></span>
-            <span class="legend-text">This Month</span>
-          </div>
-        </div> -->
       </div>
     </p-card>
   </div>
 
-  <div class="col-12 md:col-6 lg:col-6">
-    <p-card
-      *ngIf="chartInfo['visitor-insights']"
-      [header]="chartInfo['visitor-insights'].title"
-    >
+  <!-- Visitor Insights -->
+  <div class="col-12 md:col-7">
+    <p-card header="Visitor Insights">
       <div class="chart-content">
         <p-chart
           [type]="chartInfo['visitor-insights'].type"
@@ -105,11 +84,43 @@
       </div>
     </p-card>
   </div>
-  <div class="col-12 md:col-6 lg:col-6">
-    <p-card
-      *ngIf="chartInfo['hire-vs-cancel']"
-      [header]="chartInfo['hire-vs-cancel'].title"
-    >
+
+  <!-- Top Products Table -->
+  <div class="col-12 md:col-6">
+    <p-card header="Top Products">
+      <p-table [value]="products" class="custom-table">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Popularity</th>
+            <th>Sales</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>
+              <div class="progress-bar-container">
+                <div class="progress-bar" [ngClass]="product.color">
+                  <span [ngStyle]="{ width: product.popularity + '%' }"></span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <span class="sales" [ngClass]="product.color">
+                {{ product.popularity }}%
+              </span>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-card>
+  </div>
+  <!-- Hire vs Cancel -->
+  <div class="col-12 md:col-6">
+    <p-card header="Hire vs Cancel">
       <div class="chart-content">
         <p-chart
           [type]="chartInfo['hire-vs-cancel'].type"

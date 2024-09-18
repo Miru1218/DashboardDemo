@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   border: 1px solid #000;
+  background-color: white;
 }
 
 .logo {
@@ -51,7 +52,7 @@
 
 .menu li:hover {
   width: 176px;
-  background-color: #5D5FEF;
+  background-color: #5d5fef;
   color: #ffffff;
 }
 
@@ -66,7 +67,7 @@
 }
 
 .pro-upgrade {
-  background-color: #5D5FEF;
+  background-color: #5d5fef;
   color: #ffffff;
   border-radius: 15px;
   text-align: center;
@@ -81,13 +82,13 @@
 .pro-upgrade img {
   width: 35px;
   height: 35px;
-  margin: 21px 0px 7px 0px  ;
+  margin: 21px 0px 7px 0px;
 }
 
 .pro-upgrade span {
   font-size: 14px;
   font-weight: 600;
-  line-height:22px;
+  line-height: 22px;
   display: block;
   margin-bottom: 4px;
 }
@@ -101,7 +102,7 @@
 
 .pro-upgrade button {
   background-color: #ffffff;
-  color: #5D5FEF;
+  color: #5d5fef;
   border: none;
   border-radius: 10px;
   padding: 6px 11px;

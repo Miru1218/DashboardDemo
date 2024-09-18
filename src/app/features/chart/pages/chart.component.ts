@@ -4,6 +4,7 @@ import { PanelModule } from 'primeng/panel';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ChartModule } from 'primeng/chart';
+import { TableModule } from 'primeng/table';
 import { Chart, ChartData, ChartOptions, ChartType } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { DataService } from '../services/data.service';
@@ -18,7 +19,8 @@ Chart.register(ChartDataLabels);
 @Component({
   selector: 'app-chart',
   standalone: true,
-  imports: [CommonModule, PanelModule, ButtonModule, ChartModule, CardModule, MenubarModule, InputTextModule],
+  imports: [CommonModule, PanelModule, ButtonModule, ChartModule, CardModule, MenubarModule, InputTextModule,
+    TableModule],
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss'],
 })
@@ -65,7 +67,20 @@ export class ChartComponent implements OnInit {
     },
   ];
 
-  constructor(private dataService: DataService) {}
+  // 進度條
+  products = [
+    { id: '01', name: 'Home Decor Range', popularity: 45, color: 'blue' },
+    {
+      id: '02',
+      name: "Disney Princess Pink Bag 18'",
+      popularity: 29,
+      color: 'green',
+    },
+    { id: '03', name: 'Bathroom Essentials', popularity: 18, color: 'purple' },
+    { id: '04', name: 'Apple Smartwatches', popularity: 25, color: 'orange' },
+  ];
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.initCharts();
@@ -168,6 +183,7 @@ export class ChartComponent implements OnInit {
               labels: {
                 usePointStyle: true, // 點
                 pointStyle: 'circle', // 圓形
+                padding: 40, // 圖例跟圖例的間距
               },
             },
             datalabels: {
@@ -220,6 +236,23 @@ export class ChartComponent implements OnInit {
                   display: false,
                 },
               },
+              scales: {
+                y: {
+                  grid: {
+                    display: false, // Y 軸格線
+                  },
+                  ticks: {
+                    display: false, // 隱藏 Y 軸的數字
+                  },
+                },
+                x: {
+                  grid: {
+                    display: false, // X 軸格線
+                  },
+                  barPercentage: 0.4, // 柱狀寬度
+                  categoryPercentage: 0.5, // 類別中所有柱狀寬度
+                },
+              },
               elements: {
                 line: {
                   tension: 0.4, // 曲線平滑度
@@ -237,37 +270,45 @@ export class ChartComponent implements OnInit {
             return {
               elements: {
                 line: {
-                  tension: 0.2,
+                  tension: 0.4,
                   fill: false,
                   borderWidth: 3,
                 },
                 point: {
                   backgroundColor: '#000',
                   borderWidth: 3,
+                  radius: 0, // 隱藏節點
+                  hoverRadius: 7, // 懸停時顯示節點 14px
                 },
               },
               plugins: {
                 legend: {
                   position: 'bottom',
                   labels: {
-                    usePointStyle: false,
-                    boxWidth: 15, // 圖例的寬度
-                    boxHeight: 15, // 圖例的高度
-                    generateLabels: (chart) => {
-                      const datasets = chart.data.datasets;
-                      return datasets.map((dataset, i) => ({
-                        text: dataset.label,
-                        fillStyle: dataset.backgroundColor,
-                        strokeStyle:
-                          dataset.borderColor || dataset.backgroundColor,
-                        hidden: !chart.isDatasetVisible(i),
-                        lineWidth: 0, // 沒有邊框
-                      }));
-                    },
+                    usePointStyle: true,
+                    pointStyle: 'rect',
+                    padding: 20,
                   },
                 },
+
                 datalabels: {
                   display: false,
+                },
+              },
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  min: 0, // 設置最小值為 0
+                  max: 400, // 設置最大值為 400
+                  ticks: {
+                    stepSize: 100, // 每 100 顯示一個標籤
+                  },
+                },
+                x: {
+                  grid: {
+                    display: false, // X 軸格線
+                  },
+                  beginAtZero: true,
                 },
               },
             } as ChartOptions;
@@ -291,7 +332,7 @@ export class ChartComponent implements OnInit {
       case 'doughnut':
         return {
           circumference: 360, // 完整圓形
-          rotation: -90, // 旋轉角度
+          rotation: 130, // 旋轉角度
           cutout: '70%', // 中心空心的大小
           plugins: {
             tooltip: { enabled: true },
@@ -300,7 +341,10 @@ export class ChartComponent implements OnInit {
               labels: {
                 usePointStyle: true,
                 pointStyle: 'circle',
+                boxWidth: 10,
+                padding: 10,
               },
+              maxHeight: 100, // 限制圖例容器高度
             },
             datalabels: {
               display: false,
