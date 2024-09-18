@@ -1,0 +1,18 @@
+{
+  "title": "Hire vs Cancel",
+  "type": "doughnut",
+  "labels": [
+    "Total Hired",
+    "Total Canceled",
+    "Total Pending"
+  ],
+  "datasets": [
+    {
+      "data": [
+        54,
+        20,
+        26
+      ]
+    }
+  ]
+}

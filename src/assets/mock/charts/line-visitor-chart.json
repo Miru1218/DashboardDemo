@@ -1,0 +1,71 @@
+{
+  "title": "Visitor Insights",
+  "type": "line",
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "datasets": [
+    {
+      "label": "Loyal Customers",
+      "data": [
+        150,
+        200,
+        300,
+        350,
+        250,
+        280,
+        260,
+        220,
+        270,
+        320,
+        290,
+        310
+      ]
+    },
+    {
+      "label": "New Customers",
+      "data": [
+        100,
+        150,
+        250,
+        400,
+        320,
+        360,
+        300,
+        240,
+        320,
+        360,
+        330,
+        350
+      ]
+    },
+    {
+      "label": "Unique Customers",
+      "data": [
+        200,
+        250,
+        350,
+        380,
+        300,
+        330,
+        310,
+        280,
+        330,
+        370,
+        340,
+        360
+      ]
+    }
+  ]
+}

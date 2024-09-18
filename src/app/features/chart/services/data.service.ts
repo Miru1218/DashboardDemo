@@ -12,22 +12,26 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
-  private chartParams = ['bar-chart.json']; // 多個圖表文件
+  private chartParams = [
+    'bar-chart.json',
+    'line-customer-chart.json',
+    'line-visitor-chart.json',
+    'doughnut-chart.json',
+  ];
 
   getChartData(
     param: string,
   ): Observable<ChartData<ChartType, number[], unknown>> {
     const url = `${this.baseUrl}/${param}`;
-    console.log(`Requesting chart data from URL: ${url}`); // 添加調試信息，查看請求的URL
+    console.log(`Requesting chart data from URL: ${url}`);
 
     return this.http.get<CustomChartData>(url).pipe(
       map((data) => {
-        console.log('Original data loaded from JSON:', data); // 查看原始數據
+        console.log('Original data loaded from JSON:', data);
         return this.processChartData(data);
       }),
       catchError((error) => {
         console.error(`Failed to load data for ${param}`, error);
-        // 返回空的 `ChartData` 結構，避免出錯
         return of({ type: 'bar', labels: [], datasets: [] });
       }),
     );
@@ -42,7 +46,6 @@ export class DataService {
   ): ChartData<ChartType, number[], unknown> {
     if (!data?.datasets) {
       console.error('Data format is incorrect:', data);
-      // 返回空的 `ChartData` 結構，避免出錯
       return { labels: [], datasets: [] };
     }
     return data;

@@ -1,0 +1,49 @@
+{
+  "title": "Customer Satisfaction",
+  "type": "line",
+  "labels": [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July"
+  ],
+  "datasets": [
+    {
+      "label": "Last Month",
+      "data": [
+        3000,
+        4000,
+        3200,
+        5000,
+        4200,
+        3700,
+        3004
+      ],
+      "backgroundColor": "rgba(0, 123, 255, 0.2)",
+      "borderColor": "#007bff",
+      "fill": true,
+      "tension": 0.4,
+      "pointBackgroundColor": "#007bff"
+    },
+    {
+      "label": "This Month",
+      "data": [
+        4504,
+        3900,
+        4700,
+        4300,
+        4800,
+        4600,
+        4504
+      ],
+      "backgroundColor": "rgba(40, 167, 69, 0.2)",
+      "borderColor": "#28a745",
+      "fill": true,
+      "tension": 0.4,
+      "pointBackgroundColor": "#28a745"
+    }
+  ]
+}
