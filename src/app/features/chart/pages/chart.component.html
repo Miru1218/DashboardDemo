@@ -99,4 +99,36 @@
       </div>
     </p-card>
   </div>
+  <div class="col-12 md:col-6 lg:col-6">
+    <p-card header="Top Products">
+      <p-table [value]="products" class="custom-table">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Popularity</th>
+            <th>Sales</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>
+              <div class="progress-bar-container">
+                <div class="progress-bar" [ngClass]="product.color">
+                  <span [ngStyle]="{ width: product.popularity + '%' }"></span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <span class="sales" [ngClass]="product.color"
+                >{{ product.popularity }}%</span
+              >
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-card>
+  </div>
 </div>
