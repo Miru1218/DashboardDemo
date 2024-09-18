@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { ChartComponent } from './features/chart/pages/chart.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: ChartComponent,
-  },
+  // {
+  //   path: '',
+  //   component: ChartComponent,
+  // },
 ];
 
 @NgModule({
