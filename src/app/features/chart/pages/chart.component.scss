@@ -146,4 +146,9 @@
 /* 覆蓋p-table **/
 ::ng-deep .p-datatable .p-datatable-thead > tr > th {
   background-color: #ffffff !important;
+  border: none !important;
+}
+
+::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  border: none !important;
 }
