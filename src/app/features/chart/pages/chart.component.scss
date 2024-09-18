@@ -1,3 +1,42 @@
+::ng-deep .p-menubar {
+  border: none !important;
+  background: transparent !important;
+}
+
+// 修改放大鏡樣式
+::ng-deep {
+  .p-input-icon-left {
+    > i:first-of-type {
+      color: #5D5FEF;
+      font-weight: bold;
+      left: 20px;
+    }
+  }
+}
+
+::ng-deep {
+  .p-menubar {
+    .p-menubar-end {
+      margin-right: 30px;
+    }
+    .p-inputtext {
+      width: 500px;
+      border-radius: 10px;
+      background-color: #F9FAFB;
+      border: none;
+      padding: 10px 20px 10px 50px
+    }
+  }
+}
+
+// topbar
+.dashboard-title {
+  margin-left: 22px;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 55px;
+}
+
 .chart-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 两个图表各占一半宽度 */

@@ -1,3 +1,23 @@
+<p-menubar>
+  <ng-template pTemplate="start">
+    <div class="dashboard-title">
+      Dashboard
+    </div>
+  </ng-template>
+  <ng-template pTemplate="end">
+    <div class="">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input
+          type="text"
+          pInputText
+          placeholder="Search here..."
+        />
+      </span>
+    </div>
+  </ng-template>
+</p-menubar>
+
 <div class="grid p-fluid chart-container">
   <div class="col-12">
     <p-card header="Today's Sales">

@@ -9,13 +9,16 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { DataService } from '../services/data.service';
 import { CustomChartData } from '../models/chart-data.model';
 import { ChartColorConfig } from '../models/chart-color-config.model';
+import { MenubarModule } from 'primeng/menubar';
+import { InputTextModule } from 'primeng/inputtext';
+
 
 Chart.register(ChartDataLabels);
 
 @Component({
   selector: 'app-chart',
   standalone: true,
-  imports: [CommonModule, PanelModule, ButtonModule, ChartModule, CardModule],
+  imports: [CommonModule, PanelModule, ButtonModule, ChartModule, CardModule, MenubarModule, InputTextModule],
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss'],
 })
