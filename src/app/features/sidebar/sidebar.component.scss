@@ -4,8 +4,6 @@
   top: 0;
   height: 100vh;
   width: 345px;
-  background-color: #ffffff;
-  color: black;
   display: flex;
   flex-direction: column;
   border: 1px solid #000;
@@ -16,7 +14,6 @@
   align-items: center;
   margin-top: 50px;
   margin-left: 43px;
-  margin-bottom: 20px;
 }
 
 .logo img {
@@ -28,11 +25,12 @@
 .logo span {
   font-size: 30px;
   font-weight: 600;
+  line-height: 45px;
 }
 
 .menu {
   list-style-type: none;
-  margin-left: 70px;
+  margin: 49px 0 0 46px;
   padding: 0;
 }
 
@@ -41,29 +39,32 @@
   align-items: center;
   cursor: pointer;
   font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
   width: 252px;
   height: 64px;
   transition: all 0.3s ease;
-  border-radius: 5px;
-  padding: 0 10px;
-  margin-bottom: 8px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  color: #737791;
 }
 
 .menu li:hover {
-  background-color: #4b4dbe;
+  width: 252px;
+  background-color: #5D5FEF;
   color: #ffffff;
-  transform: scale(1.05);
 }
 
 .menu li i {
   font-size: 32px;
-  margin-right: 10px;
+  margin: 16px 24px;
 }
 
-.menu li.active {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-}
+// .menu li.active {
+//   width: 252px;
+//   background-color: #5D5FEF;
+//   color: #ffffff;
+// }
 
 .sign-out {
   margin-top: auto;
@@ -71,13 +72,16 @@
 }
 
 .pro-upgrade {
-  background-color: #4b4dbe;
+  background-color: #5D5FEF;
   color: #ffffff;
-  border-radius: 10px;
+  border-radius: 15px;
   text-align: center;
   width: 238px;
   height: 259px;
   margin-left: 54px;
+  margin-top: 112px;
+  position: relative;
+  overflow: hidden;  // 确保子元素不会溢出
 }
 
 .pro-upgrade img {
@@ -87,28 +91,29 @@
 }
 
 .pro-upgrade span {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
+  line-height: 32px;
   display: block;
   margin-bottom: 5px;
 }
 
 .pro-upgrade p {
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
   margin-bottom: 25px;
 }
 
 .pro-upgrade button {
   background-color: #ffffff;
-  color: #4b4dbe;
+  color: #5D5FEF;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 8px 15px;
   font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-.pro-upgrade button:hover {
-  background-color: #f0f0f0;
 }
