@@ -1,7 +1,5 @@
 .chart-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 两个图表各占一半宽度 */
-  gap: 20px; /* 图表之间的间距 */
+  width: 100%;
 }
 
 .custom-legend {
@@ -19,7 +17,7 @@
 .legend-line {
   width: 30px;
   height: 2px;
-  background-color: #007bff; /* 更改顏色 */
+  background-color: #007bff;
   margin-right: 5px;
   position: relative;
 }
@@ -27,7 +25,7 @@
 .legend-ellipse {
   width: 12px;
   height: 12px;
-  background-color: #007bff; /* 更改顏色 */
+  background-color: #007bff;
   border-radius: 50%;
   position: absolute;
   left: 10px;
@@ -36,7 +34,7 @@
 
 .legend-text {
   margin-left: 10px;
-  color: #6c757d; /* 字體顏色 */
+  color: #6c757d;
   font-size: 14px;
 }
 
@@ -50,6 +48,7 @@
   align-items: center;
 }
 
+// 資訊卡(4個方形)
 .summary-cards {
   display: flex;
   justify-content: space-between;
@@ -59,28 +58,39 @@
 .summary-card {
   width: 23%;
   padding: 1.5rem;
-  border-radius: 8px;
-  text-align: center;
+  border-radius: 12px;
+  text-align: left;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .icon {
   font-size: 2rem;
   margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 1rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 
 .details h2 {
   font-size: 1.5rem;
   margin: 0;
+  color: #151d48;
 }
 
 .details p {
-  color: gray;
+  color: #425166;
   margin: 0.5rem 0;
+  font-weight: 500;
 }
 
 .details span {
-  color: green;
+  color: #4079ed;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .header-content {
@@ -104,43 +114,71 @@
   width: 100%;
 }
 
+.sales {
+  padding: 0px 26px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: inline-block;
+  border: 2px solid var(--color-main);
+  color: var(--color-main);
+  background-color: var(--color-bg);
+}
+
 .progress-bar-container {
-  background-color: #e0e0e0;
   border-radius: 10px;
-  height: 6px;
+  height: 4px;
   width: 100%;
-  margin-top: 10px;
+  background-color: var(--color-bg);
 }
 
 .progress-bar span {
   display: block;
-  height: 6px;
+  height: 4px;
   border-radius: 10px;
-}
-
-.sales {
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-weight: bold;
-  display: inline-block;
-  margin-top: 10px;
+  background-color: var(--color-main);
 }
 
 /* 顏色定義 */
-.blue span {
-  background-color: #4eafff;
+.blue {
+  --color-main: #007bff;
+  --color-bg: rgba(0, 123, 255, 0.1);
 }
 
-.green span {
-  background-color: #20c997;
+.green {
+  --color-main: #20c997;
+  --color-bg: rgba(32, 201, 151, 0.1);
 }
 
-.purple span {
-  background-color: #6f42c1;
+.purple {
+  --color-main: #6f42c1;
+  --color-bg: rgba(111, 66, 193, 0.1);
 }
 
-.orange span {
-  background-color: #fd7e14;
+.orange {
+  --color-main: #fd7e14;
+  --color-bg: rgba(253, 126, 20, 0.1);
+}
+/* 未完成部分的透明效果 */
+.progress-bar-container.blue {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.progress-bar-container.green {
+  background-color: rgba(40, 167, 69, 0.1);
+}
+
+.progress-bar-container.purple {
+  background-color: rgba(111, 66, 193, 0.1);
+}
+
+.progress-bar-container.orange {
+  background-color: rgba(253, 126, 20, 0.1);
+}
+
+// Popularity 欄位的寬度
+.custom-table th.popularity-header,
+.custom-table td.popularity-cell {
+  width: 26%;
 }
 
 /* 覆蓋p-table **/

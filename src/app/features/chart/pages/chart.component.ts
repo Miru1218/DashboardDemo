@@ -45,28 +45,32 @@ export class ChartComponent implements OnInit {
       value: '$1k',
       title: 'Total Sales',
       change: '+8% from yesterday',
-      color: '#fce4ec',
+      color: '#FFE2E5',
+      iconColor: '#FA5A7D',
     },
     {
-      icon: 'pi pi-shopping-bag',
+      icon: 'pi pi-file',
       value: '300',
       title: 'Total Order',
       change: '+5% from yesterday',
-      color: '#fff8e1',
+      color: '#FFF4DE',
+      iconColor: '#FF947A',
     },
     {
-      icon: 'pi pi-pencil',
+      icon: 'pi pi-tag',
       value: '5',
       title: 'Product Sold',
       change: '+1.2% from yesterday',
-      color: '#e8f5e9',
+      color: '#DCFCE7',
+      iconColor: '#3CD856',
     },
     {
-      icon: 'pi pi-users',
+      icon: 'pi pi-user-plus',
       value: '8',
       title: 'New Customers',
       change: '+0.5% from yesterday',
-      color: '#f3e5f5',
+      color: '#F3E8FF',
+      iconColor: '#BF83FF',
     },
   ];
 
@@ -180,6 +184,9 @@ export class ChartComponent implements OnInit {
     switch (type) {
       case 'bar':
         return {
+          // maintainAspectRatio: false,
+          aspectRatio: 2,
+          responsive: true,
           plugins: {
             legend: {
               position: 'bottom',
