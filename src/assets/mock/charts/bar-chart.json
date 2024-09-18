@@ -1,0 +1,39 @@
+{
+  "title": "Total Revenue",
+  "type": "bar",
+  "labels": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+  ],
+  "datasets": [
+    {
+      "label": "Online Sales",
+      "data": [
+        10000,
+        15000,
+        5000,
+        17000,
+        10000,
+        13000,
+        20000
+      ]
+    },
+    {
+      "label": "Offline Sales",
+      "data": [
+        8000,
+        10000,
+        22000,
+        8000,
+        12000,
+        11000,
+        9000
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+<div class="grid p-fluid chart-container">
+  <div class="col-12">
+    <p-card header="Today's Sales">
+      <div class="p-card-header">
+        <!-- <p>Sales Summary</p> -->
+        <button pButton label="Export" icon="pi pi-download"></button>
+      </div>
+
+      <!-- 卡片 -->
+      <div class="summary-cards">
+        <div
+          *ngFor="let card of summaryCards"
+          class="summary-card"
+          [ngStyle]="{ 'background-color': card.color }"
+        >
+          <div class="icon">
+            <i [class]="card.icon"></i>
+          </div>
+          <div class="details">
+            <h2>{{ card.value }}</h2>
+            <p>{{ card.title }}</p>
+            <span>{{ card.change }}</span>
+          </div>
+        </div>
+      </div>
+    </p-card>
+  </div>
+
+  <!-- Total Revenue Chart -->
+  <div class="col-12 md:col-6 lg:col-6">
+    <p-card
+      *ngIf="chartInfo['total-revenue']"
+      [header]="chartInfo['total-revenue'].title"
+    >
+      <div class="chart-content">
+        <p-chart
+          [type]="chartInfo['total-revenue'].type"
+          [data]="chartInfo['total-revenue'].data"
+          [options]="chartInfo['total-revenue'].options"
+        ></p-chart>
+      </div>
+    </p-card>
+  </div>
+
+  <!-- Customer Satisfaction Chart -->
+  <div class="col-12 md:col-6 lg:col-6">
+    <p-card
+      *ngIf="chartInfo['customer-satisfaction']"
+      [header]="chartInfo['customer-satisfaction'].title"
+    >
+      <div class="chart-content">
+        <p-chart
+          [type]="chartInfo['customer-satisfaction'].type"
+          [data]="chartInfo['customer-satisfaction'].data"
+          [options]="chartInfo['customer-satisfaction'].options"
+        ></p-chart>
+        <!-- 圖例 -->
+        <!-- <div class="custom-legend">
+          <div class="legend-item">
+            <span class="legend-line"></span>
+            <span class="legend-ellipse"></span>
+            <span class="legend-text">Last Month</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-line"></span>
+            <span class="legend-ellipse" style="background-color: green"></span>
+            <span class="legend-text">This Month</span>
+          </div>
+        </div> -->
+      </div>
+    </p-card>
+  </div>
+
+  <div class="col-12 md:col-6 lg:col-6">
+    <p-card
+      *ngIf="chartInfo['visitor-insights']"
+      [header]="chartInfo['visitor-insights'].title"
+    >
+      <div class="chart-content">
+        <p-chart
+          [type]="chartInfo['visitor-insights'].type"
+          [data]="chartInfo['visitor-insights'].data"
+          [options]="chartInfo['visitor-insights'].options"
+        ></p-chart>
+      </div>
+    </p-card>
+  </div>
+  <div class="col-12 md:col-6 lg:col-6">
+    <p-card
+      *ngIf="chartInfo['hire-vs-cancel']"
+      [header]="chartInfo['hire-vs-cancel'].title"
+    >
+      <div class="chart-content">
+        <p-chart
+          [type]="chartInfo['hire-vs-cancel'].type"
+          [data]="chartInfo['hire-vs-cancel'].data"
+          [options]="chartInfo['hire-vs-cancel'].options"
+        ></p-chart>
+      </div>
+    </p-card>
+  </div>
+</div>
