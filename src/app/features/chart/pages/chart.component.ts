@@ -182,10 +182,9 @@ export class ChartComponent implements AfterViewInit {
     chartId: string,
     customOptions: Partial<ChartOptions> = {},
   ): ChartOptions {
-    // 基礎配置(全部)
+    // 基礎配置(全部套用)
     const baseOptions: ChartOptions = {
-      // responsive: true,
-      // aspectRatio: 2,
+      responsive: true,
       plugins: {
         legend: {
           display: true,
@@ -216,9 +215,6 @@ export class ChartComponent implements AfterViewInit {
     switch (type) {
       case 'bar':
         return {
-          // maintainAspectRatio: false,
-          // aspectRatio: 2,
-          responsive: true,
           plugins: {
             legend: {
               position: 'bottom',
@@ -268,7 +264,9 @@ export class ChartComponent implements AfterViewInit {
         switch (chartId) {
           case 'customer-satisfaction':
             return {
-              // maintainAspectRatio: false, // 不強制保持寬高比
+              maintainAspectRatio: false,
+              aspectRatio: 1,
+              responsive: true,
               plugins: {
                 legend: {
                   display: true,
@@ -311,6 +309,8 @@ export class ChartComponent implements AfterViewInit {
 
           case 'visitor-insights':
             return {
+              maintainAspectRatio: false,
+              aspectRatio: 1,
               elements: {
                 line: {
                   tension: 0.4,
@@ -341,8 +341,8 @@ export class ChartComponent implements AfterViewInit {
               scales: {
                 y: {
                   beginAtZero: true,
-                  min: 0, // 設置最小值為 0
-                  max: 400, // 設置最大值為 400
+                  min: 0, // 最小值為 0
+                  max: 400, // 最大值為 400
                   ticks: {
                     stepSize: 100, // 每 100 顯示一個標籤
                   },
@@ -374,6 +374,8 @@ export class ChartComponent implements AfterViewInit {
 
       case 'doughnut':
         return {
+          maintainAspectRatio: false,
+          aspectRatio: 1,
           circumference: 360, // 完整圓形
           rotation: 130, // 旋轉角度
           cutout: '70%', // 中心空心的大小
@@ -387,7 +389,7 @@ export class ChartComponent implements AfterViewInit {
                 boxWidth: 10,
                 padding: 10,
               },
-              maxHeight: 100, // 限制圖例容器高度
+              maxHeight: 100, // 限制圖例高度
             },
             datalabels: {
               display: false,
