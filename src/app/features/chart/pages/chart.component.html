@@ -12,12 +12,21 @@
   </ng-template>
 </p-menubar>
 
-<div class="grid p-fluid">
+<div class="grid p-fluid custom-grid">
   <!-- Today's Sales -->
   <div class="col-12 md:col-7 p-3">
-    <p-card header="Today's Sales">
+    <p-card>
       <div class="p-card-header">
-        <button pButton label="Export" icon="pi pi-download"></button>
+        <h2 class="p-card-title">
+          Today's Sales <br />
+          <span class="sales-summary">Sales Summary</span>
+        </h2>
+        <button
+          pButton
+          label="Export"
+          icon="pi pi-download"
+          class="export-button"
+        ></button>
       </div>
       <div class="grid summary-cards">
         <div

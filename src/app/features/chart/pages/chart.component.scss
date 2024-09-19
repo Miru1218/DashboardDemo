@@ -29,6 +29,16 @@
   }
 }
 
+::ng-deep .p-card {
+  .p-card-body {
+    padding:  0  1rem 1rem 1rem;
+  }
+}
+
+.custom-grid {
+  margin-right: 0 ;
+}
+
 // topbar
 .dashboard-title {
   margin-left: 22px;
@@ -85,6 +95,33 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.p-card-title {
+  margin: 0 0 0 14px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 32px;
+  color: #05004E;
+}
+
+.sales-summary {
+  color: #737791;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-left: 3px;
+}
+
+.export-button {
+  width:120px;
+  height: 40px;
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+  color: #05004E;
+  padding: 20px 16px;
+  background-color: #ffffff;
+  border: 1px solid #C3D3E2;
+  border-radius: 10px;
 }
 
 // 資訊卡(4個方形)
