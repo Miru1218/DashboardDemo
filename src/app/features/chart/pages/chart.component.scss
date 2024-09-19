@@ -1,3 +1,5 @@
+@import '~typeface-poppins/index.css';
+
 ::ng-deep .p-menubar {
   border: none;
   background-color: white;
@@ -29,17 +31,24 @@
   }
 }
 
+.custom-grid {
+  margin-right: 0;
+}
+
 // topbar
 .dashboard-title {
   margin-left: 22px;
   font-size: 25px;
   font-weight: 600;
   line-height: 55px;
+  font-family: 'Poppins', sans-serif;
 }
 
-.chart-container {
-  width: 100%;
-}
+// .chart-container {
+//   // width: 100%;
+//   height: 100%;
+//   min-height: 350px;
+// }
 
 .custom-legend {
   display: flex;
@@ -83,26 +92,55 @@
   align-items: center;
 }
 
-// 資訊卡
+.p-card-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 32px;
+  color: #05004e;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.sales-summary {
+  color: #737791;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-left: 3px;
+  font-weight: 400;
+}
+
+.export-button {
+  width: 120px;
+  height: 40px;
+  color: #05004e;
+  padding: 20px 16px;
+  background-color: #ffffff;
+  border: 1px solid #c3d3e2;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 20px;
+}
+
+// 資訊卡(4個方形)
 .summary-cards {
   display: flex;
   justify-content: space-between;
-  margin-top: 42px;
+  margin-top: 43px;
 }
 // 資訊卡(4個方形)
 .summary-card {
-  width: 23%;
-  padding: 1.5rem;
+  width: 22%;
+  padding: 1.25rem;
   border-radius: 12px;
   text-align: left;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .icon {
-  font-size: 2rem;
   margin-bottom: 1rem;
   background-color: rgba(255, 255, 255, 0.7);
-  padding: 1rem;
+  padding: 0.75rem;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
@@ -112,6 +150,8 @@
 
 .details h2 {
   font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
   margin: 0;
   color: #151d48;
 }
@@ -120,12 +160,15 @@
   color: #425166;
   margin: 0.5rem 0;
   font-weight: 500;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .details span {
   color: #4079ed;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.75rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .header-content {
@@ -138,10 +181,6 @@
 .header-content span {
   font-size: 1.5rem;
   font-weight: bold;
-}
-
-.export-button {
-  margin-left: auto;
 }
 
 // 進度條
@@ -213,27 +252,41 @@
 // Popularity 欄位的寬度
 .custom-table th.popularity-header,
 .custom-table td.popularity-cell {
-  width: 26%;
+  width: 30%;
 }
 
 /* 覆蓋p-table **/
 ::ng-deep .p-datatable .p-datatable-thead > tr > th {
   background-color: #ffffff !important;
   border: none !important;
+  padding: 8px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 32px;
+  color: #96a5b8;
 }
 
 ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
   border: none !important;
+  padding: 20px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #444a6d;
 }
-//
+
 ::ng-deep .p-card {
   border-radius: 20px !important;
-  box-shadow: 0 4px 20px #eeeeee;
-
-  border: 1px solid #f8f9fa;
+  box-shadow: 0 4px 20px rgba(238, 238, 238, 0.502);
+  border: 1px solid rgba(248, 249, 250, 1);
 }
 ::ng-deep .p-card .p-card-body {
   padding: 1.5rem 2rem 2rem 2rem;
+}
+::ng-deep .p-card .p-card-content {
+  padding: 0;
 }
 
 // 覆蓋 grid 預設 margin 設定 (移除 margin )
@@ -243,4 +296,13 @@
   margin-right: 0rem;
   margin-left: 0rem;
   margin-top: 0rem;
+}
+
+::ng-deep .p-card .p-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  line-height: 32px;
+  color: #05004e;
+  margin-bottom: 1rem;
 }

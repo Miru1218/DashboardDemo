@@ -1,9 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  HostListener,
+  QueryList,
+  ViewChildren,
+} from '@angular/core';
 import { PanelModule } from 'primeng/panel';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
-import { ChartModule } from 'primeng/chart';
+import { ChartModule, UIChart } from 'primeng/chart';
 import { TableModule } from 'primeng/table';
 import { Chart, ChartData, ChartOptions, ChartType } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
@@ -13,18 +19,27 @@ import { ChartColorConfig } from '../models/chart-color-config.model';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 
-
 Chart.register(ChartDataLabels);
 
 @Component({
   selector: 'app-chart',
   standalone: true,
-  imports: [CommonModule, PanelModule, ButtonModule, ChartModule, CardModule, MenubarModule, InputTextModule,
-    TableModule],
+  imports: [
+    CommonModule,
+    PanelModule,
+    ButtonModule,
+    ChartModule,
+    CardModule,
+    MenubarModule,
+    InputTextModule,
+    TableModule,
+  ],
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss'],
 })
-export class ChartComponent implements OnInit {
+export class ChartComponent implements AfterViewInit {
+  @ViewChildren(UIChart) charts!: QueryList<UIChart>;
+
   // chart 的定義，要帶入的資料
   chartInfo: {
     [title: string]: {
@@ -84,7 +99,27 @@ export class ChartComponent implements OnInit {
     { id: '04', name: 'Apple Smartwatches', popularity: 25, color: 'orange' },
   ];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {}
+
+  // 初始化完後執行
+  ngAfterViewInit() {
+    this.updateChartSize();
+  }
+
+  // window 的 resize
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.updateChartSize();
+  }
+
+  // 調整圖表大小
+  updateChartSize() {
+    this.charts.forEach((chart) => {
+      if (chart && chart.chart) {
+        chart.chart.resize(); // 手動觸發圖表的 resize
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.initCharts();
@@ -149,8 +184,8 @@ export class ChartComponent implements OnInit {
   ): ChartOptions {
     // 基礎配置(全部)
     const baseOptions: ChartOptions = {
-      responsive: true,
-      aspectRatio: 2,
+      // responsive: true,
+      // aspectRatio: 2,
       plugins: {
         legend: {
           display: true,
@@ -182,7 +217,7 @@ export class ChartComponent implements OnInit {
       case 'bar':
         return {
           // maintainAspectRatio: false,
-          aspectRatio: 2,
+          // aspectRatio: 2,
           responsive: true,
           plugins: {
             legend: {
@@ -233,6 +268,7 @@ export class ChartComponent implements OnInit {
         switch (chartId) {
           case 'customer-satisfaction':
             return {
+              // maintainAspectRatio: false, // 不強制保持寬高比
               plugins: {
                 legend: {
                   display: true,

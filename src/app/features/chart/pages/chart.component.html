@@ -12,12 +12,21 @@
   </ng-template>
 </p-menubar>
 
-<div class="grid p-fluid">
+<div class="grid p-fluid custom-grid">
   <!-- Today's Sales -->
   <div class="col-12 md:col-7 p-3">
-    <p-card header="Today's Sales">
+    <p-card>
       <div class="p-card-header">
-        <button pButton label="Export" icon="pi pi-download"></button>
+        <h2 class="p-card-title">
+          Today's Sales <br />
+          <span class="sales-summary">Sales Summary</span>
+        </h2>
+        <button
+          pButton
+          label="Export"
+          icon="pi pi-upload"
+          class="export-button"
+        ></button>
       </div>
       <div class="grid summary-cards">
         <div
@@ -38,9 +47,9 @@
     </p-card>
   </div>
   <!-- Visitor Insights -->
-  <div class="col-12 md:col-5">
-    <p-card header="Visitor Insights">
-      <div class="chart-content">
+  <div class="col-12 md:col-5 p-3">
+    <p-card class="p-card-title" header="Visitor Insights ">
+      <div *ngIf="chartInfo['visitor-insights']">
         <p-chart
           [type]="chartInfo['visitor-insights'].type"
           [data]="chartInfo['visitor-insights'].data"
@@ -52,7 +61,7 @@
   <!-- Total Revenue Chart -->
   <div class="col-12 md:col-5 p-3">
     <p-card header="Total Revenue">
-      <div class="chart-container">
+      <div *ngIf="chartInfo['total-revenue']">
         <p-chart
           [type]="chartInfo['total-revenue'].type"
           [data]="chartInfo['total-revenue'].data"
@@ -64,7 +73,7 @@
   <!-- Customer Satisfaction Chart -->
   <div class="col-12 md:col-7 p-3">
     <p-card header="Customer Satisfaction">
-      <div class="chart-content">
+      <div *ngIf="chartInfo['customer-satisfaction']">
         <p-chart
           [type]="chartInfo['customer-satisfaction'].type"
           [data]="chartInfo['customer-satisfaction'].data"
@@ -74,7 +83,7 @@
     </p-card>
   </div>
   <!-- Top Products Table -->
-  <div class="col-12 md:col-9 p-3">
+  <div class="col-12 md:col-8 p-3">
     <p-card header="Top Products">
       <p-table [value]="products" class="custom-table">
         <ng-template pTemplate="header">
@@ -107,9 +116,9 @@
     </p-card>
   </div>
   <!-- Hire vs Cancel -->
-  <div class="col-12 md:col-3 p-3">
+  <div class="col-12 md:col-4 p-3">
     <p-card header="Hire vs Cancel">
-      <div class="chart-content">
+      <div *ngIf="chartInfo['hire-vs-cancel']">
         <p-chart
           [type]="chartInfo['hire-vs-cancel'].type"
           [data]="chartInfo['hire-vs-cancel'].data"
