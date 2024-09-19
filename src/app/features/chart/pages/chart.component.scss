@@ -7,7 +7,7 @@
 ::ng-deep {
   .p-input-icon-left {
     > i:first-of-type {
-      color: #5D5FEF;
+      color: #5d5fef;
       font-weight: bold;
       left: 20px;
     }
@@ -22,9 +22,9 @@
     .p-inputtext {
       width: 500px;
       border-radius: 10px;
-      background-color: #F9FAFB;
+      background-color: #f9fafb;
       border: none;
-      padding: 10px 20px 10px 50px
+      padding: 10px 20px 10px 50px;
     }
   }
 }
@@ -77,23 +77,19 @@
   font-size: 14px;
 }
 
-.p-card {
-  margin: 2rem;
-}
-
 .p-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-// 資訊卡(4個方形)
+// 資訊卡
 .summary-cards {
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
+  margin-top: 42px;
 }
-
+// 資訊卡(4個方形)
 .summary-card {
   width: 23%;
   padding: 1.5rem;
@@ -228,4 +224,23 @@
 
 ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
   border: none !important;
+}
+//
+::ng-deep .p-card {
+  border-radius: 20px !important;
+  box-shadow: 0 4px 20px #eeeeee;
+
+  border: 1px solid #f8f9fa;
+}
+::ng-deep .p-card .p-card-body {
+  padding: 1.5rem 2rem 2rem 2rem;
+}
+
+// 覆蓋 grid 預設 margin 設定 (移除 margin )
+::ng-deep .grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 0rem;
+  margin-left: 0rem;
+  margin-top: 0rem;
 }
