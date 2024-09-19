@@ -66,7 +66,6 @@
 }
 
 .pro-upgrade {
-  background-color: #5d5fef;
   color: #ffffff;
   border-radius: 15px;
   text-align: center;
@@ -76,6 +75,9 @@
   margin-top: 40px;
   position: relative;
   overflow: hidden;
+  background-image: url('../../../assets/images/proImg.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .pro-upgrade img {
