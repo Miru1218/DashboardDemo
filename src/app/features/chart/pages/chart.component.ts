@@ -129,7 +129,7 @@ export class ChartComponent implements AfterViewInit {
     // 抓資料
     const chartRequests = this.dataService.getAllChartData();
 
-    chartRequests.forEach((request, index) => {
+    chartRequests.forEach((request) => {
       request.subscribe(
         (chartData: ChartData<ChartType, number[], unknown>) => {
           const customChartData = chartData as CustomChartData; // chartData 轉為 CustomChartData model
@@ -212,6 +212,7 @@ export class ChartComponent implements AfterViewInit {
 
   // 根據圖表類型客製
   private getSpecificOptions(type: string, chartId: string): ChartOptions {
+    console.log('chartId:', chartId);
     switch (type) {
       case 'bar':
         return {
@@ -244,11 +245,12 @@ export class ChartComponent implements AfterViewInit {
               },
             },
             x: {
+              stacked: false,
               grid: {
                 display: false, // X 軸格線
               },
-              barPercentage: 0.4, // 柱狀寬度
-              categoryPercentage: 0.5, // 類別中所有柱狀寬度
+              barPercentage: 0.3, // 柱狀寬度
+              categoryPercentage: 0.9, // 類別中所有柱狀寬度
             },
           },
           indexAxis: 'x',
@@ -309,13 +311,13 @@ export class ChartComponent implements AfterViewInit {
 
           case 'visitor-insights':
             return {
-              maintainAspectRatio: false,
-              aspectRatio: 1,
+              maintainAspectRatio: true,
+              // aspectRatio: 1,
               elements: {
                 line: {
                   tension: 0.4,
                   fill: false,
-                  borderWidth: 3,
+                  borderWidth: 4,
                 },
                 point: {
                   backgroundColor: '#000',
@@ -375,13 +377,14 @@ export class ChartComponent implements AfterViewInit {
       case 'doughnut':
         return {
           maintainAspectRatio: false,
-          aspectRatio: 1,
+          aspectRatio: 1.5,
           circumference: 360, // 完整圓形
           rotation: 130, // 旋轉角度
           cutout: '70%', // 中心空心的大小
           plugins: {
             tooltip: { enabled: true },
             legend: {
+              display: false,
               position: 'bottom',
               labels: {
                 usePointStyle: true,
@@ -389,7 +392,6 @@ export class ChartComponent implements AfterViewInit {
                 boxWidth: 10,
                 padding: 10,
               },
-              maxHeight: 100, // 限制圖例高度
             },
             datalabels: {
               display: false,
@@ -402,7 +404,7 @@ export class ChartComponent implements AfterViewInit {
     }
   }
 
-  // 顏色配置
+  // 顏色設定
   private getCustomColors(
     chartType: string,
     chartId: string,
@@ -475,7 +477,15 @@ export class ChartComponent implements AfterViewInit {
       return [{ backgroundColor: '#0095ff' }, { backgroundColor: '#00e096' }];
     }
   }
+  getBackgroundColor(backgroundColor: any, index: number): string {
+    // 檢查是否是數組，並返回對應的顏色
+    if (Array.isArray(backgroundColor)) {
+      return backgroundColor[index];
+    }
 
+    // 如果不是數組，直接返回它（可能是單一的 string 或其他類型）
+    return backgroundColor || '#000'; // 預設值可以是黑色或者其他顏色
+  }
   // 取所有圖表的標題
   getChartTitles(): string[] {
     return Object.keys(this.chartInfo);
