@@ -48,7 +48,7 @@
   </div>
   <!-- Visitor Insights -->
   <div class="col-12 md:col-5 p-3">
-    <p-card class="p-card-title" header="Visitor Insights ">
+    <p-card header="Visitor Insights ">
       <div *ngIf="chartInfo['visitor-insights']">
         <p-chart
           [type]="chartInfo['visitor-insights'].type"
@@ -72,7 +72,7 @@
   </div>
   <!-- Customer Satisfaction Chart -->
   <div class="col-12 md:col-7 p-3">
-    <p-card header="Customer Satisfaction">
+    <p-card class="height-card" header="Customer Satisfaction">
       <div *ngIf="chartInfo['customer-satisfaction']">
         <p-chart
           [type]="chartInfo['customer-satisfaction'].type"
@@ -83,7 +83,7 @@
     </p-card>
   </div>
   <!-- Top Products Table -->
-  <div class="col-12 md:col-8 p-3">
+  <div class="col-12 md:col-9 p-3">
     <p-card header="Top Products">
       <p-table [value]="products" class="custom-table">
         <ng-template pTemplate="header">
@@ -116,7 +116,7 @@
     </p-card>
   </div>
   <!-- Hire vs Cancel -->
-  <div class="col-12 md:col-4 p-3">
+  <div class="col-12 md:col-3 p-3">
     <p-card header="Hire vs Cancel">
       <div *ngIf="chartInfo['hire-vs-cancel']">
         <p-chart
@@ -124,6 +124,50 @@
           [data]="chartInfo['hire-vs-cancel'].data"
           [options]="chartInfo['hire-vs-cancel'].options"
         ></p-chart>
+
+        <!-- 自訂圖例，包含顏色、標籤和多個百分比變化 -->
+        <div class="custom-legend" *ngIf="chartInfo['hire-vs-cancel']?.data">
+          <div
+            class="legend-item"
+            *ngFor="
+              let label of chartInfo['hire-vs-cancel'].data.labels;
+              let i = index
+            "
+          >
+            <!-- 設對應的顏色 -->
+            <span
+              class="legend-color"
+              [style.background-color]="
+                getBackgroundColor(
+                  chartInfo['hire-vs-cancel'].data.datasets[0].backgroundColor,
+                  i
+                )
+              "
+            ></span>
+            <span class="legend-label">{{ label }}</span>
+
+            <!-- 第一個數字寫死的百分比和箭頭 -->
+            <span class="legend-percentage" *ngIf="i === 0">
+              54%
+              <i class="up-arrow">↑</i>
+              <!-- 綠色上升箭頭 -->
+            </span>
+
+            <!-- 第二個數字寫死的百分比和箭頭 -->
+            <span class="legend-percentage" *ngIf="i === 1">
+              20%
+              <i class="up-arrow">↑</i>
+              <!-- 綠色上升箭頭 -->
+            </span>
+
+            <!-- 第三個數字寫死的百分比和箭頭 -->
+            <span class="legend-percentage" *ngIf="i === 2">
+              -26%
+              <i class="down-arrow">↓</i>
+              <!-- 紅色下降箭頭 -->
+            </span>
+          </div>
+        </div>
       </div>
     </p-card>
   </div>

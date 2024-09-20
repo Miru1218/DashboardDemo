@@ -120,7 +120,7 @@
 .summary-cards {
   display: flex;
   justify-content: space-between;
-  margin-top: 43px;
+  margin-top: 48px;
 }
 // 資訊卡(4個方形)
 .summary-card {
@@ -282,8 +282,8 @@
   border: 1px solid rgba(248, 249, 250, 1);
 }
 ::ng-deep .p-card .p-card-body {
-  padding: 1.5rem 2rem 2rem 2rem;
-  height: 400px;
+  padding: 2rem;
+  height: 400px; // 暫時只能使用固定card高度做到大小一致
 }
 ::ng-deep .p-card .p-card-content {
   padding: 0;
@@ -304,5 +304,47 @@
   font-family: 'Poppins', sans-serif;
   line-height: 32px;
   color: #05004e;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.custom-legend {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 圖例的整體左對齊 */
+  margin-top: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center; /* 垂直置中每個圖例項目 */
+  justify-content: flex-start; /* 左對齊 */
+  margin-bottom: 10px;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.legend-label {
+  font-size: 14px;
+  margin-right: 10px;
+  text-align: left;
+}
+
+.legend-percentage {
+  font-size: 14px;
+  margin-left: 10px;
+  text-align: left;
+}
+.up-arrow {
+  color: green;
+  font-weight: bold;
+}
+
+.down-arrow {
+  color: red;
 }
