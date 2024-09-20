@@ -165,6 +165,7 @@
     <p-card header="Hire vs Cancel">
       <div *ngIf="chartInfo['hire-vs-cancel']">
         <p-chart
+          height="205px"
           [type]="chartInfo['hire-vs-cancel'].type"
           [data]="chartInfo['hire-vs-cancel'].data"
           [options]="chartInfo['hire-vs-cancel'].options"
@@ -179,32 +180,38 @@
               let i = index
             "
           >
-            <!-- 設對應的顏色 -->
-            <span
-              class="legend-color"
-              [style.background-color]="
-                getBackgroundColor(
-                  chartInfo['hire-vs-cancel'].data.datasets[0].backgroundColor,
-                  i
-                )
-              "
-            ></span>
-            <span class="legend-label">{{ label }}</span>
+            <div class="legend-content">
+              <!-- 顏色和標籤 -->
+              <div class="legend-text">
+                <span
+                  class="legend-color"
+                  [style.background-color]="
+                    getBackgroundColor(
+                      chartInfo['hire-vs-cancel'].data.datasets[0]
+                        .backgroundColor,
+                      i
+                    )
+                  "
+                ></span>
+                <span class="legend-label">{{ label }}</span>
+              </div>
 
-            <span class="legend-percentage" *ngIf="i === 0">
-              54%
-              <i class="up-arrow">↑</i>
-            </span>
-
-            <span class="legend-percentage" *ngIf="i === 1">
-              20%
-              <i class="up-arrow">↑</i>
-            </span>
-
-            <span class="legend-percentage" *ngIf="i === 2">
-              -26%
-              <i class="down-arrow">↓</i>
-            </span>
+              <!-- 百分比和箭頭 -->
+              <div class="legend-percentage">
+                <span *ngIf="i === 0">
+                  54%
+                  <i class="up-arrow">↑</i>
+                </span>
+                <span *ngIf="i === 1">
+                  20%
+                  <i class="up-arrow">↑</i>
+                </span>
+                <span *ngIf="i === 2">
+                  -26%
+                  <i class="down-arrow">↓</i>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

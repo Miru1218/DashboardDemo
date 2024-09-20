@@ -306,6 +306,20 @@
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 10px;
+  width: 100%;
+  padding: 0 50px;
+}
+
+.custom-legend .legend-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 確保垂直居中對齊 */
+  width: 100%;
+}
+
+.custom-legend .legend-text {
+  display: flex;
+  align-items: center;
 }
 
 .legend-color {

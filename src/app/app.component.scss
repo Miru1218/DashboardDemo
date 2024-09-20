@@ -1,3 +1,12 @@
-.main-content {
-  margin-left: 13%;
+
+
+@media screen and (max-height: 911px) {
+  .main-content {
+    margin-left: 13%;
+  }
+}
+@media screen and (min-height: 912px) {
+  .main-content {
+    margin-left: 18%;
+  }
 }
