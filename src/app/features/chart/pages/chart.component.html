@@ -134,38 +134,38 @@
               let i = index
             "
           >
-            <!-- 設對應的顏色 -->
-            <span
-              class="legend-color"
-              [style.background-color]="
-                getBackgroundColor(
-                  chartInfo['hire-vs-cancel'].data.datasets[0].backgroundColor,
-                  i
-                )
-              "
-            ></span>
-            <span class="legend-label">{{ label }}</span>
+            <div class="legend-content">
+              <!-- 顏色和標籤 -->
+              <div class="legend-text">
+                <span
+                  class="legend-color"
+                  [style.background-color]="
+                    getBackgroundColor(
+                      chartInfo['hire-vs-cancel'].data.datasets[0]
+                        .backgroundColor,
+                      i
+                    )
+                  "
+                ></span>
+                <span class="legend-label">{{ label }}</span>
+              </div>
 
-            <!-- 第一個數字寫死的百分比和箭頭 -->
-            <span class="legend-percentage" *ngIf="i === 0">
-              54%
-              <i class="up-arrow">↑</i>
-              <!-- 綠色上升箭頭 -->
-            </span>
-
-            <!-- 第二個數字寫死的百分比和箭頭 -->
-            <span class="legend-percentage" *ngIf="i === 1">
-              20%
-              <i class="up-arrow">↑</i>
-              <!-- 綠色上升箭頭 -->
-            </span>
-
-            <!-- 第三個數字寫死的百分比和箭頭 -->
-            <span class="legend-percentage" *ngIf="i === 2">
-              -26%
-              <i class="down-arrow">↓</i>
-              <!-- 紅色下降箭頭 -->
-            </span>
+              <!-- 百分比和箭頭 -->
+              <div class="legend-percentage">
+                <span *ngIf="i === 0">
+                  54%
+                  <i class="up-arrow">↑</i>
+                </span>
+                <span *ngIf="i === 1">
+                  20%
+                  <i class="up-arrow">↑</i>
+                </span>
+                <span *ngIf="i === 2">
+                  -26%
+                  <i class="down-arrow">↓</i>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
