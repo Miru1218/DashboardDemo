@@ -268,10 +268,10 @@ export class ChartComponent implements AfterViewInit {
             return {
               maintainAspectRatio: false,
               aspectRatio: 1,
-              responsive: true,
+              responsive: false,
               plugins: {
                 legend: {
-                  display: true,
+                  display: false,
                   align: 'center',
                   position: 'bottom',
                 },
@@ -292,8 +292,6 @@ export class ChartComponent implements AfterViewInit {
                   grid: {
                     display: false, // X 軸格線
                   },
-                  barPercentage: 0.4, // 柱狀寬度
-                  categoryPercentage: 0.5, // 類別中所有柱狀寬度
                 },
               },
               elements: {

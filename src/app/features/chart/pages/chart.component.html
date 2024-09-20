@@ -1,3 +1,4 @@
+<!-- Sider -->
 <p-menubar class="top-0 sticky z-1">
   <ng-template pTemplate="start">
     <div class="dashboard-title">Dashboard</div>
@@ -51,6 +52,7 @@
     <p-card header="Visitor Insights ">
       <div *ngIf="chartInfo['visitor-insights']">
         <p-chart
+          height="276px"
           [type]="chartInfo['visitor-insights'].type"
           [data]="chartInfo['visitor-insights'].data"
           [options]="chartInfo['visitor-insights'].options"
@@ -75,10 +77,53 @@
     <p-card class="height-card" header="Customer Satisfaction">
       <div *ngIf="chartInfo['customer-satisfaction']">
         <p-chart
+          height="220px"
           [type]="chartInfo['customer-satisfaction'].type"
           [data]="chartInfo['customer-satisfaction'].data"
           [options]="chartInfo['customer-satisfaction'].options"
         ></p-chart>
+
+        <!-- 自訂圖例，包含顏色、標籤和靜態數字 -->
+        <div
+          class="custom-legends"
+          *ngIf="chartInfo['customer-satisfaction']?.data"
+        >
+          <div class="legend-items">
+            <div class="legend-container">
+              <div
+                class="circle-with-lines"
+                [ngStyle]="{
+                  '--circle-color':
+                    chartInfo['customer-satisfaction'].data.datasets[0]
+                      .borderColor
+                }"
+              ></div>
+              <span class="legend-labels">{{
+                chartInfo['customer-satisfaction'].data.datasets[0].label
+              }}</span>
+            </div>
+            <!-- 靜態數字顯示在圖例下方 -->
+            <div class="legend-description">$3,004</div>
+          </div>
+
+          <div class="legend-items">
+            <div class="legend-container">
+              <div
+                class="circle-with-lines"
+                [ngStyle]="{
+                  '--circle-color':
+                    chartInfo['customer-satisfaction'].data.datasets[1]
+                      .borderColor
+                }"
+              ></div>
+              <span class="legend-labels">{{
+                chartInfo['customer-satisfaction'].data.datasets[1].label
+              }}</span>
+            </div>
+            <!-- 靜態數字顯示在圖例下方 -->
+            <div class="legend-description">$4,504</div>
+          </div>
+        </div>
       </div>
     </p-card>
   </div>
@@ -146,25 +191,19 @@
             ></span>
             <span class="legend-label">{{ label }}</span>
 
-            <!-- 第一個數字寫死的百分比和箭頭 -->
             <span class="legend-percentage" *ngIf="i === 0">
               54%
               <i class="up-arrow">↑</i>
-              <!-- 綠色上升箭頭 -->
             </span>
 
-            <!-- 第二個數字寫死的百分比和箭頭 -->
             <span class="legend-percentage" *ngIf="i === 1">
               20%
               <i class="up-arrow">↑</i>
-              <!-- 綠色上升箭頭 -->
             </span>
 
-            <!-- 第三個數字寫死的百分比和箭頭 -->
             <span class="legend-percentage" *ngIf="i === 2">
               -26%
               <i class="down-arrow">↓</i>
-              <!-- 紅色下降箭頭 -->
             </span>
           </div>
         </div>
