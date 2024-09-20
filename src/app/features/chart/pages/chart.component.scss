@@ -1,5 +1,39 @@
+// Poppins 字型
 @import '~typeface-poppins/index.css';
 
+// p-card 設定
+::ng-deep .p-card {
+  border-radius: 20px !important;
+  box-shadow: 0 4px 20px rgba(238, 238, 238, 0.502);
+  border: 1px solid rgba(248, 249, 250, 1);
+}
+::ng-deep .p-card .p-card-body {
+  padding: 2rem;
+}
+::ng-deep .p-card .p-card-content {
+  padding: 0;
+}
+
+// 覆蓋 grid 預設 margin 設定 (移除 margin )
+::ng-deep .grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 0rem;
+  margin-left: 0rem;
+  margin-top: 0rem;
+}
+
+::ng-deep .p-card .p-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  line-height: 32px;
+  color: #05004e;
+  margin-bottom: 1.25rem;
+}
+
+// ------------------------------------------------------------------------
+// topbar
 ::ng-deep .p-menubar {
   border: none;
   background-color: white;
@@ -31,11 +65,6 @@
   }
 }
 
-.custom-grid {
-  display: flex;
-}
-
-// topbar
 .dashboard-title {
   margin-left: 22px;
   font-size: 25px;
@@ -44,30 +73,8 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.legend-line {
-  width: 30px;
-  height: 2px;
-  background-color: #007bff;
-  margin-right: 5px;
-  position: relative;
-}
-
-.legend-ellipse {
-  width: 12px;
-  height: 12px;
-  background-color: #007bff;
-  border-radius: 50%;
-  position: absolute;
-  left: 10px;
-  top: -5px;
-}
-
-.legend-text {
-  margin-left: 10px;
-  color: #6c757d;
-  font-size: 14px;
-}
-
+// ------------------------------------------------------------------------
+// Today's Sales  資訊卡
 .p-card-header {
   display: flex;
   justify-content: space-between;
@@ -84,14 +91,6 @@
   font-weight: 600;
 }
 
-.sales-summary {
-  color: #737791;
-  font-size: 16px;
-  margin-top: 5px;
-  margin-left: 3px;
-  font-weight: 400;
-}
-
 .export-button {
   width: 120px;
   height: 40px;
@@ -104,7 +103,15 @@
   line-height: 20px;
 }
 
-// 資訊卡(4個方形)
+.sales-summary {
+  color: #737791;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-left: 3px;
+  font-weight: 400;
+}
+
+// 資訊卡
 .summary-cards {
   display: flex;
   justify-content: space-between;
@@ -152,33 +159,20 @@
   font-size: 0.75rem;
   font-family: 'Poppins', sans-serif;
 }
-
-.chart-container {
-  height: 400px;
-  width: 100%;
-}
-
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-}
-
-.header-content span {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-// 進度條
+// ------------------------------------------------------------------------
+// Top Products 進度條
 .custom-table {
   width: 100%;
 }
 
 .sales {
-  padding: 0px 26px;
+  width: 75%;
+  padding: 4px 25px;
   border-radius: 8px;
-  font-weight: bold;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  line-height: 16px;
   display: inline-block;
   border: 2px solid var(--color-main);
   color: var(--color-main);
@@ -199,27 +193,28 @@
   background-color: var(--color-main);
 }
 
-/* 顏色定義 */
+// 顏色定義
 .blue {
-  --color-main: #007bff;
+  --color-main: #0095ff;
   --color-bg: rgba(0, 123, 255, 0.1);
 }
 
 .green {
-  --color-main: #20c997;
+  --color-main: #00e58f;
   --color-bg: rgba(32, 201, 151, 0.1);
 }
 
 .purple {
-  --color-main: #6f42c1;
+  --color-main: #884dff;
   --color-bg: rgba(111, 66, 193, 0.1);
 }
 
 .orange {
-  --color-main: #fd7e14;
+  --color-main: #ff8900;
   --color-bg: rgba(253, 126, 20, 0.1);
 }
-/* 未完成部分的透明效果 */
+
+// 未完成部分的透明效果
 .progress-bar-container.blue {
   background-color: rgba(0, 123, 255, 0.1);
 }
@@ -242,7 +237,13 @@
   width: 30%;
 }
 
-/* 覆蓋p-table **/
+// Sales 欄位的寬度
+.custom-table th.sales-header,
+.custom-table td.sales-cell {
+  width: 15%;
+}
+
+// 覆蓋p-table
 ::ng-deep .p-datatable .p-datatable-thead > tr > th {
   background-color: #ffffff !important;
   border: none !important;
@@ -255,8 +256,10 @@
 }
 
 ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
-  border: none !important;
-  padding: 20px 20px;
+  border-right: none !important;
+  border-left: none !important;
+  border-bottom: 1px #edf2f6;
+  padding: 20px 12px;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -264,41 +267,27 @@
   color: #444a6d;
 }
 
-::ng-deep .p-card {
-  border-radius: 20px !important;
-  box-shadow: 0 4px 20px rgba(238, 238, 238, 0.502);
-  border: 1px solid rgba(248, 249, 250, 1);
-}
-::ng-deep .p-card .p-card-body {
-  padding: 2rem;
-}
-::ng-deep .p-card .p-card-content {
-  padding: 0;
-}
-
-// 覆蓋 grid 預設 margin 設定 (移除 margin )
-::ng-deep .grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: 0rem;
-  margin-left: 0rem;
-  margin-top: 0rem;
-}
-
-::ng-deep .p-card .p-card-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  font-family: 'Poppins', sans-serif;
-  line-height: 32px;
-  color: #05004e;
-  margin-bottom: 1.25rem;
-}
-
+// ------------------------------------------------------------------------
+// Hire vs Cancel 圓餅圖
 .custom-legend {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-top: 10px;
+}
+
+.custom-legend .legend-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.custom-legend .legend-text {
+  display: flex;
+  align-items: center;
+  color: #6c757d;
+  font-size: 14px;
 }
 
 .legend-item {
@@ -310,18 +299,6 @@
   padding: 0 50px;
 }
 
-.custom-legend .legend-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; /* 確保垂直居中對齊 */
-  width: 100%;
-}
-
-.custom-legend .legend-text {
-  display: flex;
-  align-items: center;
-}
-
 .legend-color {
   width: 20px;
   height: 20px;
@@ -330,26 +307,33 @@
   border-radius: 50%;
 }
 
+// 圖例標籤
 .legend-label {
   font-size: 14px;
   margin-right: 10px;
   text-align: left;
 }
 
+// 百分比顯示
 .legend-percentage {
   font-size: 14px;
   margin-left: 10px;
   text-align: left;
 }
+
+// 綠色箭頭
 .up-arrow {
   color: green;
   font-weight: bold;
 }
 
+// 紅色箭頭
 .down-arrow {
   color: red;
 }
 
+// ------------------------------------------------------------------------
+// Customer Satisfaction 折線圖
 .custom-legends {
   display: flex;
   flex-direction: row;
@@ -365,10 +349,13 @@
   margin-right: 120px;
   flex-direction: column;
 }
+
 .legend-container {
   display: flex;
   align-items: center;
 }
+
+// 圖例橢圓
 .circle-with-lines {
   position: relative;
   width: 17px;
@@ -378,6 +365,7 @@
   display: inline-block;
 }
 
+// 圖例線條
 .circle-with-lines::before,
 .circle-with-lines::after {
   content: '';
@@ -389,10 +377,11 @@
   transform: translateY(-50%);
 }
 
+// 線條位置
 .circle-with-lines::before {
   left: -12px;
 }
-
+// 線條位置
 .circle-with-lines::after {
   right: -12px;
 }
@@ -402,6 +391,7 @@
   font-family: 'Poppins', sans-serif;
   margin-left: 25px;
 }
+
 .legend-description {
   font-size: 14px;
   font-weight: 500;

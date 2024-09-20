@@ -1,4 +1,4 @@
-<!-- Sider -->
+<!-- Topbar -->
 <p-menubar class="top-0 sticky z-1">
   <ng-template pTemplate="start">
     <div class="dashboard-title">Dashboard</div>
@@ -83,7 +83,7 @@
           [options]="chartInfo['customer-satisfaction'].options"
         ></p-chart>
 
-        <!-- 自訂圖例，包含顏色、標籤和靜態數字 -->
+        <!-- 手刻圖例 -->
         <div
           class="custom-legends"
           *ngIf="chartInfo['customer-satisfaction']?.data"
@@ -102,10 +102,8 @@
                 chartInfo['customer-satisfaction'].data.datasets[0].label
               }}</span>
             </div>
-            <!-- 靜態數字顯示在圖例下方 -->
             <div class="legend-description">$3,004</div>
           </div>
-
           <div class="legend-items">
             <div class="legend-container">
               <div
@@ -120,7 +118,6 @@
                 chartInfo['customer-satisfaction'].data.datasets[1].label
               }}</span>
             </div>
-            <!-- 靜態數字顯示在圖例下方 -->
             <div class="legend-description">$4,504</div>
           </div>
         </div>
@@ -136,7 +133,7 @@
             <th>#</th>
             <th>Name</th>
             <th class="popularity-header">Popularity</th>
-            <th>Sales</th>
+            <th class="sales-header">Sales</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>
@@ -150,7 +147,7 @@
                 </div>
               </div>
             </td>
-            <td>
+            <td class="sales-cell">
               <span class="sales" [ngClass]="product.color"
                 >{{ product.popularity }}%</span
               >
@@ -160,18 +157,19 @@
       </p-table>
     </p-card>
   </div>
+
   <!-- Hire vs Cancel -->
   <div class="col-12 md:col-3 p-3">
     <p-card header="Hire vs Cancel">
       <div *ngIf="chartInfo['hire-vs-cancel']">
         <p-chart
-          height="205px"
+          height="218px"
           [type]="chartInfo['hire-vs-cancel'].type"
           [data]="chartInfo['hire-vs-cancel'].data"
           [options]="chartInfo['hire-vs-cancel'].options"
         ></p-chart>
 
-        <!-- 自訂圖例，包含顏色、標籤和多個百分比變化 -->
+        <!-- 手刻圖例 -->
         <div class="custom-legend" *ngIf="chartInfo['hire-vs-cancel']?.data">
           <div
             class="legend-item"
@@ -195,7 +193,6 @@
                 ></span>
                 <span class="legend-label">{{ label }}</span>
               </div>
-
               <!-- 百分比和箭頭 -->
               <div class="legend-percentage">
                 <span *ngIf="i === 0">

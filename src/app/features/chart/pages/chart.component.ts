@@ -116,7 +116,7 @@ export class ChartComponent implements AfterViewInit {
   updateChartSize() {
     this.charts.forEach((chart) => {
       if (chart && chart.chart) {
-        chart.chart.resize(); // 手動觸發圖表的 resize
+        chart.chart.resize(); // 觸發圖表的 resize
       }
     });
   }
@@ -475,15 +475,14 @@ export class ChartComponent implements AfterViewInit {
       return [{ backgroundColor: '#0095ff' }, { backgroundColor: '#00e096' }];
     }
   }
+
   getBackgroundColor(backgroundColor: any, index: number): string {
-    // 檢查是否是數組，並返回對應的顏色
     if (Array.isArray(backgroundColor)) {
       return backgroundColor[index];
     }
-
-    // 如果不是數組，直接返回它（可能是單一的 string 或其他類型）
     return backgroundColor || '#000'; // 預設值可以是黑色或者其他顏色
   }
+
   // 取所有圖表的標題
   getChartTitles(): string[] {
     return Object.keys(this.chartInfo);
