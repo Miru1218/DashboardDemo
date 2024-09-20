@@ -1,4 +1,4 @@
-/* 基本样式（适用于高度小于等于911px） */
+/* 基本樣式（高度小於等於911px） */
 @media screen and (max-height: 911px) {
   .sidebar {
     position: fixed;
@@ -123,7 +123,7 @@
   }
 }
 
-/* 高度大于911px的样式 */
+/* 高度大於911px的樣式 */
 @media screen and (min-height: 912px) {
   .sidebar {
     position: fixed;
@@ -224,5 +224,129 @@
     line-height: 24px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+  }
+}
+
+@media screen and (max-height: 731px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 9%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    margin-left: 22px;
+  }
+  
+  .logo img {
+    width:28px;
+    height: 28px;
+    margin-right: 12px;
+  }
+  
+  .logo span {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 22px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .menu {
+    list-style-type: none;
+    margin: 25px 0 0 23px;
+    padding: 0;
+  }
+  
+  .menu li {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 14px;
+    width: 126px;
+    height: 32px;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    color: #737791;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .menu li:hover {
+    width: 126px;
+    background-color: #5d5fef;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  
+  .menu li i {
+    font-size: 16px;
+    margin: 8px 12px;
+  }
+  
+  .sign-out {
+    margin-top: auto;
+    padding: 5px 0;
+  }
+  
+  .pro-upgrade {
+    color: #ffffff;
+    border-radius: 15px;
+    text-align: center;
+    width: 119px;
+    height: 130px;
+    margin-left: 27px;
+    margin-top: 56px;
+    position: relative;
+    overflow: hidden;
+    background-image: url('../../../assets/images/proImg.png');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .pro-upgrade img {
+    width: 25px;
+    height: 25px;
+    margin: 15px 0px 5px 0px;
+  }
+  
+  .pro-upgrade span {
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 16px;
+    display: block;
+    margin-bottom: 3px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .pro-upgrade p {
+    font-size: 6px;
+    font-weight: 500;
+    line-height: 8px;
+    margin-bottom: 13px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .pro-upgrade button {
+    background-color: #ffffff;
+    color: #5d5fef;
+    border: none;
+    border-radius: 10px;
+    padding: 4px 8px;
+    font-weight: 600;
+    font-size: 8px;
+    line-height: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
   }
 }
